@@ -1,3 +1,4 @@
+import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiService } from 'core';
 import { environment } from '../../../environments/environment';
@@ -16,8 +17,23 @@ export class PostsService {
   }
 
   getAllPosts() {
-    const path = `${this.api_url}/posts`
+    const path = `${this.api_url}/posts`;
     
     return this.svc.get(path);
+  }
+
+  getPost(postId) {
+    const path = `${this.api_url}/posts/${postId}`;
+    
+    return this.svc.get(path);
+  }
+  
+  getAllComments(postId) {
+    const path = `${this.api_url}/comments`;
+
+    const params = new HttpParams()
+      .set('postId', postId);
+    
+    return this.svc.get(path, params);
   }
 }

@@ -1,0 +1,59 @@
+.container {
+	max-width: 800px;
+	margin: auto;
+	padding: 1rem;
+
+	.button-control {
+		text-align: right;
+	}
+
+	.title {
+		text-decoration: underline;
+	}
+}
+
+.comment-wrapper {
+	border-top: 1px solid #ccc;
+	margin-top: 2rem;
+	padding: 0.5re;
+
+	> h3 {
+		margin-top: 1rem;
+	}
+
+	.filter {
+		background-color: #e4e6e8;
+		padding: 1rem;
+		padding-top: 0.5rem;
+		border-radius: 5px;
+
+		.mat-form-field {
+			margin-right: 1rem;
+		}
+	}
+
+	.comment {
+		margin-top: 1.5rem;
+		border: 1px solid #6cbbf7;
+		padding: 5px;
+
+		.owner {
+			background-color: #e1ecf4;
+			border-radius: 2px;
+			padding: 5px;
+			font-size: smaller;
+
+			p {
+				margin-bottom: 0;
+
+				&.name {
+					font-weight: bold;
+				}
+
+				&.email {
+					color: #379fef;
+				}
+			}
+		}
+	}
+}

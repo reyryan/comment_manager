@@ -1,0 +1,42 @@
+
+<div class="container mat-elevation-z8">
+	<div class="button-control">
+		<button mat-stroked-button color="primary" routerLink="../..">Back to All Posts</button>
+	</div>
+	<mat-card *ngIf="postDetail">
+		<h2 class="title">{{ postDetail.title }}</h2>
+		<mat-card-content>
+			<p>{{ postDetail.body }}</p>
+		</mat-card-content>
+	
+		<div class="comment-wrapper">
+			<h3><strong>{{ comments.length }} Comments</strong></h3>
+			<div class="filter" [formGroup]="dataFilter">
+				<p>Filters</p>
+				<mat-form-field>
+					<mat-label>Name</mat-label>
+					<input matInput placeholder="Name" formControlName="name">
+				</mat-form-field>
+				
+				<mat-form-field>
+					<mat-label>Email</mat-label>
+					<input matInput placeholder="Email" formControlName="email">
+				</mat-form-field>
+				
+				<mat-form-field>
+					<mat-label>Body</mat-label>
+					<input matInput placeholder="Body" formControlName="body">
+				</mat-form-field>
+	
+				<button mat-stroked-button (click)="clearFilters()">Clear</button>
+			</div>
+			<div *ngFor="let comment of list" class="comment">
+				<p>{{ comment.body }}</p>
+				<div class="owner">
+					<p class="name">{{ comment.name }}</p>
+					<p class="email">{{ comment.email }}</p>
+				</div>
+			</div>
+		</div>
+	</mat-card>
+</div>
